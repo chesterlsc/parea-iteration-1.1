@@ -25,7 +25,7 @@
         <nav class="site-nav desktop-nav" aria-label="Primary">
           <a href="#top">home</a>
           <a href="#founder">founder</a>
-          <a href="#philosophy">philosophy</a>
+          <a href="#companies-view">companies</a>
           <a href="#systems">systems</a>
           <a href="#pcaa">education</a>
           <a href="#acquisitions-overview">acquisitions</a>
@@ -52,7 +52,7 @@
         <nav class="site-nav mobile-nav" aria-label="Mobile primary">
           <a href="#top">home</a>
           <a href="#founder">founder</a>
-          <a href="#philosophy">philosophy</a>
+          <a href="#companies-view">companies</a>
           <a href="#systems">systems</a>
           <a href="#pcaa">education</a>
           <a href="#acquisitions-overview">acquisitions</a>
@@ -135,29 +135,76 @@
         <div class="container identity-shell">
           <div class="identity-main reveal">
             <p class="eyebrow">founder</p>
-            <h2>founder-led. systems-first.</h2>
+            <h2>how the founder operates</h2>
             <p class="identity-intro">
-              parea is built on a simple premise: structure compounds. clear ownership, cleaner
-              handoffs, and better decisions create the leverage most businesses never see.
+              parea is shaped by a systems-first view of business. the founder focuses on
+              structure, operational clarity, long-term ownership, and the kind of technology
+              that strengthens the business without distracting from it.
             </p>
-
-            <div class="identity-support">
-              <a class="button button-secondary identity-cta" href="#systems">view the model</a>
-            </div>
           </div>
 
           <div class="identity-points reveal" id="philosophy">
             <article class="identity-point">
-              <h3>systems over spectacle</h3>
-              <p>authority comes from clear structure and repeatable execution.</p>
+              <span class="identity-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="4.5" y="4.5" width="6" height="6" rx="1.5"></rect>
+                  <rect x="13.5" y="4.5" width="6" height="6" rx="1.5"></rect>
+                  <rect x="4.5" y="13.5" width="6" height="6" rx="1.5"></rect>
+                  <rect x="13.5" y="13.5" width="6" height="6" rx="1.5"></rect>
+                </svg>
+              </span>
+              <h3>systems thinking</h3>
+              <p>
+                better businesses are built on cleaner structure, clearer handoffs, and
+                decisions that compound over time.
+              </p>
             </article>
             <article class="identity-point">
+              <span class="identity-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="7.5"></circle>
+                  <path d="M12 8.25v4.25l3 2"></path>
+                </svg>
+              </span>
+              <h3>long-term ownership</h3>
+              <p>
+                the goal is not short-term movement. it is patient ownership, durability, and
+                businesses worth keeping.
+              </p>
+            </article>
+            <article class="identity-point">
+              <span class="identity-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 7h14"></path>
+                  <path d="M5 12h14"></path>
+                  <path d="M5 17h14"></path>
+                  <circle cx="9" cy="7" r="1.5"></circle>
+                  <circle cx="15" cy="12" r="1.5"></circle>
+                  <circle cx="11" cy="17" r="1.5"></circle>
+                </svg>
+              </span>
+              <h3>operational clarity</h3>
+              <p>
+                clarity comes from repeatable execution, visible systems, and less friction across
+                the business.
+              </p>
+            </article>
+            <article class="identity-point">
+              <span class="identity-point-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="5" y="4.5" width="14" height="4" rx="1.5"></rect>
+                  <rect x="5" y="10" width="14" height="4" rx="1.5"></rect>
+                  <rect x="5" y="15.5" width="14" height="4" rx="1.5"></rect>
+                  <path d="M8 6.5h.01"></path>
+                  <path d="M8 12h.01"></path>
+                  <path d="M8 17.5h.01"></path>
+                </svg>
+              </span>
               <h3>technology as infrastructure</h3>
-              <p>technology matters most when it disappears into the way the business runs.</p>
-            </article>
-            <article class="identity-point">
-              <h3>structure, not pressure</h3>
-              <p>scale comes from better systems, cleaner handoffs, and shorter decision loops.</p>
+              <p>
+                technology matters most when it supports the operation quietly and improves how
+                the business runs.
+              </p>
             </article>
           </div>
         </div>
@@ -167,20 +214,21 @@
         <div class="container">
           <div class="companies-head reveal">
             <div class="companies-intro">
-              <p class="eyebrow">systems</p>
-              <h2>scale comes from structure.</h2>
+              <p class="eyebrow">systems &amp; companies</p>
+              <h2>where systems <br class="hero-mobile-break" /> meet real business operations.</h2>
+              <p class="companies-subhead"></p>
               <p>
-                the operating layer is where invisible work gets resolved: ownership, reporting,
-                handoffs, decisions, and modernization.
+                from reporting and handoffs <br class="hero-mobile-break" /> to ownership and modernization, this is the layer
+                where structure becomes practical.
               </p>
             </div>
 
-            <div class="carousel-controls" aria-label="Systems carousel controls">
+            <div class="carousel-controls" aria-label="Systems and companies carousel controls">
               <button
                 class="carousel-button"
                 type="button"
                 data-carousel-prev
-                aria-label="Show previous systems"
+                aria-label="Show previous cards"
               >
                 <span aria-hidden="true">&larr;</span>
               </button>
@@ -188,7 +236,7 @@
                 class="carousel-button"
                 type="button"
                 data-carousel-next
-                aria-label="Show next systems"
+                aria-label="Show next cards"
               >
                 <span aria-hidden="true">&rarr;</span>
               </button>
@@ -196,8 +244,8 @@
           </div>
 
           <div class="companies-carousel reveal">
-            <div class="companies-track" data-carousel-track>
-              <article class="company-card company-card-operations">
+            <div class="companies-track" data-carousel-track id="systems-track">
+              <article class="company-card company-card-operations" data-system-card="operating-design">
                 <div class="company-head">
                   <h3>operating design</h3>
                   <p class="company-lead">map work, ownership, and decision paths.</p>
@@ -217,7 +265,7 @@
                 </p>
               </article>
 
-              <article class="company-card company-card-infrastructure">
+              <article class="company-card company-card-infrastructure" data-system-card="reporting">
                 <div class="company-head">
                   <h3>reporting</h3>
                   <p class="company-lead">turn status into a reliable operating signal.</p>
@@ -238,7 +286,7 @@
                 </p>
               </article>
 
-              <article class="company-card company-card-automation">
+              <article class="company-card company-card-automation" data-system-card="automation">
                 <div class="company-head">
                   <h3>automation</h3>
                   <p class="company-lead">remove recurring admin from critical paths.</p>
@@ -258,7 +306,7 @@
                 </p>
               </article>
 
-              <article class="company-card company-card-operations">
+              <article class="company-card company-card-operations" data-system-card="doctrine">
                 <div class="company-head">
                   <h3>doctrine</h3>
                   <p class="company-lead">shared language for consistent execution.</p>
@@ -278,7 +326,7 @@
                 </p>
               </article>
 
-              <article class="company-card company-card-infrastructure">
+              <article class="company-card company-card-infrastructure" data-system-card="modernization">
                 <div class="company-head">
                   <h3>modernization</h3>
                   <p class="company-lead">update the stack without breaking the operation.</p>
@@ -298,7 +346,7 @@
                 </p>
               </article>
 
-              <article class="company-card company-card-operations">
+              <article class="company-card company-card-operations" data-system-card="acquisitions">
                 <div class="company-head">
                   <h3>acquisitions</h3>
                   <p class="company-lead">patient ownership for durable businesses.</p>
@@ -322,6 +370,16 @@
           </div>
 
           <div class="companies-footer reveal">
+            <button
+              class="button button-secondary companies-toggle"
+              type="button"
+              id="companies-view"
+              data-companies-view
+              aria-controls="systems-track"
+              aria-pressed="false"
+            >
+              view companies
+            </button>
             <a class="button button-dark" href="#acquisitions-overview">view acquisitions</a>
           </div>
         </div>
@@ -358,6 +416,7 @@
 
         <nav class="footer-mobile-nav" aria-label="Mobile footer">
           <a href="#top">home</a>
+          <a href="#companies-view">companies</a>
           <a href="#systems">systems</a>
           <a href="mailto:hello@pareacollective.com">contact</a>
           <a href="mailto:hello@pareacollective.com?subject=LinkedIn">linkedin</a>
@@ -369,7 +428,7 @@
             <nav class="footer-nav" aria-label="Parea footer">
               <a href="#top">home</a>
               <a href="#founder">founder</a>
-              <a href="#philosophy">philosophy</a>
+              <a href="#companies-view">companies</a>
               <a href="#systems">systems</a>
             </nav>
           </div>
