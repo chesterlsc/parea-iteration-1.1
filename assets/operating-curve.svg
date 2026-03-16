@@ -1,0 +1,18 @@
+﻿<svg width="520" height="360" viewBox="0 0 520 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" rx="28" fill="#FFFFFF"/>
+  <path d="M56 294H462" stroke="#D9DCE2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M56 294V72" stroke="#D9DCE2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M56 238H462" stroke="#ECEEF2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M56 182H462" stroke="#ECEEF2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M92 248C136 232 154 216 190 204C226 192 254 184 286 164C318 144 350 114 428 82" stroke="#184FCF" stroke-opacity="0.14" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M92 248C136 232 154 216 190 204C226 192 254 184 286 164C318 144 350 114 428 82" stroke="#184FCF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="136" cy="224" r="9" fill="#184FCF"/>
+  <circle cx="270" cy="174" r="9" fill="#184FCF"/>
+  <circle cx="382" cy="114" r="9" fill="#184FCF"/>
+  <rect x="96" y="254" width="122" height="36" rx="18" fill="#F7F7F4" stroke="#E2E5EA"/>
+  <rect x="224" y="194" width="136" height="36" rx="18" fill="#F7F7F4" stroke="#E2E5EA"/>
+  <rect x="326" y="94" width="116" height="36" rx="18" fill="#F7F7F4" stroke="#E2E5EA"/>
+  <text x="119" y="276" fill="#111317" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Foundation</text>
+  <text x="257" y="216" fill="#111317" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Automation</text>
+  <text x="366" y="116" fill="#111317" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Growth</text>
+</svg>
