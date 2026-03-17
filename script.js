@@ -69,6 +69,7 @@ carousels.forEach((carousel) => {
   }
 
   const companiesButton = carousel.querySelector("[data-companies-view]");
+  const browseHint = carousel.querySelector(".companies-browse-hint");
 
   if (!companiesButton) {
     return;
@@ -336,6 +337,14 @@ carousels.forEach((carousel) => {
     companiesButton.textContent = isCompaniesView ? systemsButtonLabel : companiesButtonLabel;
   };
 
+  const syncBrowseHint = (nextView) => {
+    if (!browseHint) {
+      return;
+    }
+
+    browseHint.textContent = nextView === "companies" ? "browse companies" : "browse systems";
+  };
+
   const commitView = (nextView) => {
     track.innerHTML = nextView === "companies" ? renderCompaniesMarkup() : systemsMarkup;
     track.scrollLeft = 0;
@@ -343,6 +352,7 @@ carousels.forEach((carousel) => {
     pendingView = nextView;
     carousel.dataset.view = nextView;
     syncCompaniesButton(nextView);
+    syncBrowseHint(nextView);
     updateControls();
   };
 
@@ -351,6 +361,7 @@ carousels.forEach((carousel) => {
 
     if (nextView === activeView && nextView === pendingView) {
       syncCompaniesButton(nextView);
+      syncBrowseHint(nextView);
       carousel.dataset.view = nextView;
       return;
     }
@@ -368,6 +379,7 @@ carousels.forEach((carousel) => {
     if (nextView === activeView) {
       carousel.classList.remove("is-view-transitioning");
       syncCompaniesButton(nextView);
+      syncBrowseHint(nextView);
       carousel.dataset.view = nextView;
       return;
     }
