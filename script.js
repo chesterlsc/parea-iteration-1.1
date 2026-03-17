@@ -44,8 +44,12 @@ carousels.forEach((carousel) => {
 
   const updateControls = () => {
     const maxScrollLeft = track.scrollWidth - track.clientWidth - 4;
+    const isScrollable = maxScrollLeft > 8;
     prevButton.disabled = track.scrollLeft <= 4;
     nextButton.disabled = track.scrollLeft >= maxScrollLeft;
+    carousel.classList.toggle("is-scrollable", isScrollable);
+    carousel.classList.toggle("is-scroll-start", !isScrollable || track.scrollLeft <= 4);
+    carousel.classList.toggle("is-scroll-end", !isScrollable || track.scrollLeft >= maxScrollLeft);
   };
 
   prevButton.addEventListener("click", () => {
@@ -268,20 +272,15 @@ carousels.forEach((carousel) => {
             <div class="company-head">
               <h3>${escapeHtml(company.name)}</h3>
               <p class="company-lead">${escapeHtml(company.businessType)}</p>
+              <button
+                class="company-system-pill"
+                type="button"
+                data-system-focus="${escapeHtml(company.primaryTarget)}"
+              >
+                ${escapeHtml(company.primarySystem)}
+              </button>
             </div>
             <dl class="company-meta">
-              <div class="company-meta-primary">
-                <dt>primary system</dt>
-                <dd>
-                  <button
-                    class="company-system-pill"
-                    type="button"
-                    data-system-focus="${escapeHtml(company.primaryTarget)}"
-                  >
-                    ${escapeHtml(company.primarySystem)}
-                  </button>
-                </dd>
-              </div>
               <div class="company-meta-line company-meta-ceo">
                 <dt>ceo</dt>
                 <dd>${escapeHtml(company.ceo)}</dd>

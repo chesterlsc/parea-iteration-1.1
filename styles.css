@@ -412,7 +412,7 @@ dd {
 }
 
 .spotlight-grid-anchors {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .spotlight-card,
@@ -499,7 +499,14 @@ dd {
 .anchor-card .spotlight-copy {
   display: grid;
   align-content: start;
+  justify-items: center;
   max-width: 31ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.anchor-card .spotlight-link {
+  margin-inline: auto;
 }
 
 .spotlight-link {
@@ -681,6 +688,64 @@ dd {
   line-height: 1.58;
   text-align: left;
 }
+
+.identity-statement {
+  width: min(860px, 100%);
+  margin: clamp(0.2rem, 0.9vw, 0.55rem) auto 0;
+  padding-top: clamp(1.45rem, 2.3vw, 1.9rem);
+  border-top: 1px solid rgba(17, 19, 23, 0.08);
+}
+
+.identity-statement .eyebrow {
+  margin-bottom: 0.8rem;
+}
+
+.identity-statement-copy {
+  display: grid;
+  gap: 0.95rem;
+  max-width: 63ch;
+}
+
+.identity-statement-copy p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.identity-statement-lead,
+.identity-statement-signoff {
+  color: var(--ink);
+}
+
+.identity-statement-lead {
+  font-weight: 500;
+}
+
+.identity-statement-signoff {
+  margin-top: 0.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 861px) {
+  .identity-statement {
+    display: grid;
+    justify-items: center;
+  }
+
+  .identity-statement .eyebrow {
+    text-align: center;
+  }
+
+  .identity-statement-copy {
+    width: min(63ch, 100%);
+  }
+
+  .identity-statement-copy p {
+    text-align: left;
+  }
+}
+
 .companies-showcase {
   padding-top: clamp(3.55rem, 4.8vw, 4.45rem);
 }
@@ -722,7 +787,31 @@ dd {
 }
 
 .companies-carousel {
+  position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.companies-carousel::before,
+.companies-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 1.2rem;
+  width: clamp(1.1rem, 2.8vw, 2rem);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.companies-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), rgba(239, 239, 236, 0));
+}
+
+.companies-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), rgba(239, 239, 236, 0));
 }
 
 .carousel-controls {
@@ -782,6 +871,36 @@ dd {
 .companies-showcase.is-view-transitioning .companies-track {
   opacity: 0.18;
   transform: translateY(10px);
+}
+
+.companies-showcase[data-view="companies"] .companies-track {
+  padding-right: clamp(1rem, 2vw, 1.4rem);
+}
+
+.companies-showcase[data-view="companies"].is-scrollable:not(.is-scroll-start)
+  .companies-carousel::before {
+  opacity: 0.5;
+}
+
+.companies-showcase[data-view="companies"].is-scrollable:not(.is-scroll-end)
+  .companies-carousel::after {
+  opacity: 0.72;
+}
+
+.companies-browse-hint {
+  margin: 0.1rem auto 0;
+  width: fit-content;
+  color: rgba(17, 19, 23, 0.48);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.companies-showcase[data-view="companies"].is-scrollable .companies-browse-hint {
+  opacity: 1;
 }
 
 .company-card {
@@ -903,6 +1022,136 @@ dd {
   gap: 0.32rem;
 }
 
+.company-card:not(.company-card-company) {
+  gap: 1.62rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.985), rgba(255, 255, 255, 0.92));
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.035);
+}
+
+.company-card:not(.company-card-company):hover,
+.company-card:not(.company-card-company):focus-within {
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.055);
+}
+
+.company-card:not(.company-card-company) .company-head {
+  align-items: center;
+  gap: 0.68rem;
+  max-width: none;
+  padding-right: 0;
+  text-align: center;
+}
+
+.company-card:not(.company-card-company) .company-head h3 {
+  max-width: 11ch;
+  margin-inline: auto;
+  font-size: 1.66rem;
+  line-height: 1.01;
+}
+
+.company-card:not(.company-card-company) .company-card-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  width: fit-content;
+  max-width: 10.25rem;
+  min-height: 1.98rem;
+  padding: 0.34rem 0.68rem;
+  border: 1px solid rgba(17, 19, 23, 0.12);
+  border-radius: 12px;
+  background: rgba(17, 19, 23, 0.045);
+  box-shadow: none;
+  color: var(--ink);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.085em;
+  line-height: 1.08;
+  text-transform: lowercase;
+}
+
+.company-card-operations .company-card-pill {
+  border-color: rgba(63, 121, 87, 0.14);
+  background: rgba(63, 121, 87, 0.045);
+  color: #3f7957;
+}
+
+.company-card-automation .company-card-pill {
+  border-color: rgba(107, 84, 166, 0.14);
+  background: rgba(107, 84, 166, 0.045);
+  color: #6b54a6;
+}
+
+.company-card-infrastructure .company-card-pill {
+  border-color: rgba(58, 96, 166, 0.14);
+  background: rgba(58, 96, 166, 0.045);
+  color: #3a60a6;
+}
+
+.company-card:not(.company-card-company).company-card-operations .company-card-pill,
+.company-card:not(.company-card-company).company-card-automation .company-card-pill,
+.company-card:not(.company-card-company).company-card-infrastructure .company-card-pill {
+  border-color: rgba(17, 19, 23, 0.12);
+  background: rgba(17, 19, 23, 0.045);
+  color: var(--ink);
+}
+
+.company-card:not(.company-card-company) .company-lead {
+  max-width: 24ch;
+  margin-inline: auto;
+  text-align: center;
+  line-height: 1.48;
+}
+
+.company-card:not(.company-card-company) .company-meta {
+  justify-items: center;
+  gap: 0.88rem;
+  padding-top: 1.22rem;
+  border-top-color: rgba(17, 19, 23, 0.065);
+  text-align: center;
+}
+
+.company-card:not(.company-card-company) .company-meta > div:first-child {
+  position: static;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.company-card:not(.company-card-company) .company-meta > div:first-child dt {
+  display: block;
+}
+
+.company-card:not(.company-card-company) .company-meta > div {
+  gap: 0.24rem;
+  max-width: 18ch;
+  justify-items: center;
+}
+
+.company-card:not(.company-card-company) .company-meta dt {
+  color: #111317 !important;
+}
+
+.company-card:not(.company-card-company) .company-meta dd {
+  color: #111317 !important;
+  font-size: 1.04rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
+}
+
+.company-card:not(.company-card-company) .company-support {
+  max-width: 27ch;
+  margin-inline: auto;
+  padding-top: 1.2rem;
+  border-top-color: rgba(17, 19, 23, 0.065);
+  font-size: 0.98rem;
+  line-height: 1.58;
+  text-align: center;
+}
+
 .company-meta dt {
   margin-bottom: 0.35rem;
   color: rgba(17, 19, 23, 0.42);
@@ -929,44 +1178,57 @@ dd {
 
 .company-card-company .company-head {
   max-width: none;
-  min-height: 5rem;
-  gap: 0.48rem;
-  padding-right: clamp(9.1rem, 36%, 12rem);
+  min-height: auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding-right: 0;
+  text-align: center;
 }
 
 .company-card-company .company-head h3 {
-  max-width: 12ch;
+  max-width: 10.5ch;
+  margin-inline: auto;
+  font-size: clamp(1.5rem, 1.75vw, 1.68rem);
+  line-height: 1.04;
   text-wrap: balance;
 }
 
 .company-card-company .company-lead {
-  max-width: 29ch;
+  max-width: 22ch;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .company-card-company .company-meta {
   gap: 1.08rem;
-  padding-top: 1.15rem;
+  padding-top: 1.2rem;
 }
 
-.company-card-company .company-meta-primary {
-  top: 1.9rem;
-  right: 1.9rem;
-  width: min(11.5rem, calc(100% - 4rem));
-  min-height: auto;
+.company-card-company .company-meta > div:first-child {
+  position: static;
+  display: grid;
+  align-items: start;
+  justify-content: stretch;
+  min-height: 0;
+  width: auto;
   padding: 0;
   border: 0;
+  border-radius: 0;
   background: none;
   box-shadow: none;
 }
 
-.company-card-company .company-meta-primary dd {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 0;
-  color: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
+.company-card-company .company-meta > div:first-child dt {
+  display: block;
+}
+
+.company-card-company .company-meta > div:first-child dd {
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-transform: none;
 }
 
 .company-card-company .company-meta-ceo,
@@ -1003,6 +1265,22 @@ dd {
 .company-card-company .company-support {
   max-width: none;
   padding-top: 1.15rem;
+}
+
+.company-card-company .company-system-pill {
+  width: auto;
+  max-width: 9.25rem;
+  min-height: 2.05rem;
+  padding: 0.36rem 0.72rem;
+  margin-inline: auto;
+  border-color: rgba(17, 19, 23, 0.14);
+  background: rgba(17, 19, 23, 0.055);
+  color: var(--ink);
+  border-radius: 16px;
+  box-shadow: none;
+  font-size: 0.62rem;
+  justify-self: center;
+  line-height: 1.16;
 }
 
 .company-system-pill,
@@ -1068,6 +1346,14 @@ dd {
   border-color: rgba(63, 121, 87, 0.16);
   background: rgba(63, 121, 87, 0.06);
   color: #3f7957;
+}
+
+.company-card-company.company-card-infrastructure .company-system-pill,
+.company-card-company.company-card-automation .company-system-pill,
+.company-card-company.company-card-operations .company-system-pill {
+  border-color: rgba(17, 19, 23, 0.14);
+  background: rgba(17, 19, 23, 0.055);
+  color: var(--ink);
 }
 
 .company-card-infrastructure .company-system-link:hover,
@@ -1562,6 +1848,28 @@ dd {
     gap: 0.95rem;
   }
 
+  .spotlight-grid-anchors {
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% - 1.6rem);
+    grid-template-columns: none;
+    gap: 0.85rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-left: 0;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0.35rem 0.35rem 0;
+    scrollbar-width: none;
+  }
+
+  .spotlight-grid-anchors::-webkit-scrollbar {
+    display: none;
+  }
+
+  .spotlight-grid-anchors > .anchor-card {
+    scroll-snap-align: start;
+  }
+
   .js-enabled .mobile-spotlight-reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -1625,7 +1933,8 @@ dd {
   }
 
   .identity-main,
-  .identity-points {
+  .identity-points,
+  .identity-statement {
     width: 100%;
     max-width: 25rem;
     margin-inline: auto;
@@ -1642,6 +1951,24 @@ dd {
   .identity-points {
     grid-template-columns: 1fr;
     gap: 0.9rem;
+  }
+
+  .identity-statement {
+    padding-top: 1.2rem;
+  }
+
+  .identity-statement .eyebrow {
+    margin-bottom: 0.68rem;
+  }
+
+  .identity-statement-copy {
+    gap: 0.82rem;
+    max-width: none;
+  }
+
+  .identity-statement-copy p {
+    font-size: 1rem;
+    line-height: 1.62;
   }
 
   .companies-head {
@@ -1709,11 +2036,7 @@ dd {
   }
 
   .company-card-company .company-head {
-    padding-right: clamp(7.8rem, 34%, 9.6rem);
-  }
-
-  .company-card-company .company-meta > div:first-child {
-    width: min(9.6rem, calc(100% - 3.3rem));
+    gap: 0.62rem;
   }
 
   .company-system-pill {
@@ -1722,13 +2045,82 @@ dd {
     font-size: 0.64rem;
   }
 
+  .company-card-company .company-head h3 {
+    max-width: 10.8ch;
+    font-size: clamp(1.42rem, 7vw, 1.58rem);
+  }
+
+  .company-card-company .company-lead {
+    max-width: 20ch;
+  }
+
+  .company-card-company .company-system-pill {
+    max-width: 8.8rem;
+    min-height: 2rem;
+    padding: 0.34rem 0.68rem;
+  }
+
   .company-card-company .company-meta-supports dd {
     gap: 0.32rem 0.42rem;
     max-width: none;
   }
 
+  .company-card:not(.company-card-company) {
+    gap: 1.35rem;
+  }
+
+  .company-card:not(.company-card-company) .company-head {
+    gap: 0.6rem;
+    padding-right: 0;
+  }
+
+  .company-card:not(.company-card-company) .company-head h3 {
+    max-width: 10.6ch;
+    font-size: 1.34rem;
+  }
+
+  .company-card:not(.company-card-company) .company-card-pill {
+    max-width: 9.25rem;
+    min-height: 1.9rem;
+    padding: 0.32rem 0.6rem;
+    font-size: 0.64rem;
+  }
+
+  .company-card:not(.company-card-company) .company-lead {
+    max-width: 22ch;
+    font-size: 0.96rem;
+    line-height: 1.42;
+  }
+
+  .company-card:not(.company-card-company) .company-meta {
+    justify-items: center;
+    gap: 0.76rem;
+    padding-top: 1.05rem;
+  }
+
+  .company-card:not(.company-card-company) .company-meta > div:first-child {
+    position: static;
+  }
+
+  .company-card:not(.company-card-company) .company-meta dd {
+    font-size: 1rem;
+  }
+
+  .company-card:not(.company-card-company) .company-support {
+    margin-inline: auto;
+    padding-top: 1.05rem;
+    font-size: 0.94rem;
+    line-height: 1.52;
+  }
+
   .company-system-link {
     font-size: 0.91rem;
+  }
+
+  .companies-browse-hint {
+    margin-top: 0.22rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.075em;
   }
 
   .company-head {
@@ -1847,7 +2239,9 @@ dd {
   }
 
   .companies-track {
-    grid-auto-columns: minmax(88vw, 1fr);
+    grid-auto-columns: calc(100% - 1.8rem);
+    gap: 0.95rem;
+    padding-right: 0.85rem;
   }
 
   .carousel-controls {
